@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    direction: rtl;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.animated-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/cubes.png');
+    opacity: 0.1;
+    animation: moveBackground 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes moveBackground {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 1s ease-in-out;
+    position: relative;
+    z-index: 1;
+    color: #333;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    text-align: center;
+    color: #222;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #444;
+    display: block;
+    text-align: right;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #f9f9f9;
+    text-align: right;
+    transition: all 0.3s ease-in-out;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+input:focus, select:focus {
+    border-color: #56ccf2;
+    box-shadow: 0 0 10px rgba(86, 204, 242, 0.5);
+    background: #fff;
+    outline: none;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.button {
+    width: 100%;
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+.button:hover {
+    background: linear-gradient(135deg, #dd2476, #ff512f);
+    transform: scale(1.05);
+}
+.secondary-button {
+    background: linear-gradient(135deg, #36d1dc, #5b86e5);
+    margin-top: 10px;
+}
+
+.secondary-button:hover {
+    background: linear-gradient(135deg, #5b86e5, #36d1dc);
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.circle-button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 0;
+}
+
+.circle-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.circle-button:hover {
+    transform: scale(1.1);
+}
+
+.circle-button.google {
+    background-color: #db4437;
+}
+
+.circle-button.facebook {
+    background-color: #4267B2;
+}
+
+.circle-button.google:hover {
+    background-color: #c1351d;
+}
+
+.circle-button.facebook:hover {
+    background-color: #365899;
+} 
+/* Tooltip Styles */
+.circle-button {
+    position: relative;
+    overflow: visible;
+}
+
+.circle-button::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    right: 50%;
+    transform: translateX(50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+}
+
+.circle-button:hover::after {
+    opacity: 1;
+    transform: translateX(50%) translateY(-5px);
+}
+
