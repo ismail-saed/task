@@ -4,124 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نموذج التسجيل</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-        
-        body {
-            font-family: 'Cairo', sans-serif;
-            direction: rtl;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 15px;
-            overflow: hidden;
-            position: relative;
-            color: #fff;
-        }
-        
-        .animated-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/cubes.png');
-            opacity: 0.1;
-            animation: moveBackground 20s linear infinite;
-        }
-        
-        @keyframes moveBackground {
-            from { transform: translateY(0); }
-            to { transform: translateY(-100%); }
-        }
-        
-        .container {
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 400px;
-            animation: fadeIn 1s ease-in-out;
-            position: relative;
-            z-index: 1;
-            color: #333;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        h2 {
-            text-align: center;
-            color: #222;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        
-        label {
-            font-weight: bold;
-            margin-top: 8px;
-            color: #444;
-            display: block;
-            text-align: right;
-        }
-        
-        input, select {
-            width: 100%;
-            padding: 10px;
-            margin-top: 3px;
-            border: 2px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
-            background: #f9f9f9;
-            text-align: right;
-            transition: all 0.3s ease-in-out;
-            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        input:focus, select:focus {
-            border-color: #56ccf2;
-            box-shadow: 0 0 10px rgba(86, 204, 242, 0.5);
-            background: #fff;
-        }
-        
-        .checkbox-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .checkbox-group label {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-        }
-        
-        .button {
-            width: 100%;
-            background: linear-gradient(135deg, #ff512f, #dd2476);
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background 0.3s ease-in-out, transform 0.2s;
-        }
-        
-        .button:hover {
-            background: linear-gradient(135deg, #dd2476, #ff512f);
-            transform: scale(1.05);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="animated-background"></div>
@@ -157,6 +40,22 @@
             </select>
             
             <button type="submit" class="button">إرسال</button>
+            <button type="button" class="button secondary-button" onclick="registerAccount()">تسجيل الدخول</button>
+
+            <div class="social-icons">
+                <button type="button" class="circle-button google" onclick="loginWithGoogle()" data-tooltip="التسجيل عبر جوجل">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google">
+                </button>
+                <button type="button" class="circle-button facebook" onclick="loginWithFacebook()" data-tooltip="التسجيل عبر فيسبوك">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" alt="Facebook">
+                </button>
+            </div>
+            
+            
+</div>
+
+            
+            <script src="main.js"></script>
         </form>
     </div>
 </body>
